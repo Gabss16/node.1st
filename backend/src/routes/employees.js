@@ -1,7 +1,7 @@
 //2.crea file de ruta
 
 import express, { Router } from "express";
-import productsController from "../controllers/productsControllers.js"
+import employeesController from "../controllers/employeesController.js"
 //Router que nos ayuda a color métodos
 // que tendrá mi ruta
  
@@ -11,10 +11,10 @@ const router = express.Router();
  
  
 router.route("/")
-.get(productsController.getProducts)
-.post(productsController.createProducts)
-.put(productsController.updateProducts)
-.delete(productsController.deleteProducts);
+.get(employeesController.getEmployees)
+.post(employeesController.createEmployees)
+.put(employeesController.updateEmployees)
+.delete(employeesController.deleteEmployees);
  
 export default router;
  
