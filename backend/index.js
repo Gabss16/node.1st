@@ -1,10 +1,15 @@
 import app from "./app.js";
 import "./database.js";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
+
+import { config } from "./config.js";
 
 async function main() {
 
-    const port = 4000;
-    app.listen(port);
-    console.log("server on port" + port)
+    //const port = 4000;
+    app.listen(config.server.port);
+    console.log("server on port" + config.server.port)
 }
 main();

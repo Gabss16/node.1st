@@ -1,5 +1,7 @@
+//2.crea file de ruta
+
 import express, { Router } from "express";
-import costumersController from "../controllers/costumersController.js"
+import reviewsController from "../controllers/reviewsController.js"
 //Router que nos ayuda a color métodos
 // que tendrá mi ruta
  
@@ -9,10 +11,10 @@ const router = express.Router();
  
  
 router.route("/")
-.get(costumersController.getCostumers)
-.post(costumersController.createCostumers)
+.get(reviewsController.getReview)
+.post(reviewsController.createReview)
 router.route("/:id")
-.put(costumersController.updateCostumers)
-.delete(costumersController.deleteCostumers);
+.put(reviewsController.updateReview)
+.delete(reviewsController.deleteReview);
  
 export default router;

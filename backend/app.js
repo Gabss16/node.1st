@@ -3,6 +3,7 @@ import productsRoutes from "./src/routes/products.js"
 import costumersRoutes from "./src/routes/costumers.js"
 import employeesRoutes from "./src/routes/employees.js"
 import branchesRoutes from "./src/routes/branches.js"
+import reviewsRoutes from "./src/routes/reviews.js"
 const app = express();
 
 
@@ -15,6 +16,7 @@ app.use("/api/products", productsRoutes)
 app.use("/api/costumers", costumersRoutes)
 app.use("/api/employees", employeesRoutes)
 app.use("/api/branches", branchesRoutes)
+app.use("/api/reviews", reviewsRoutes)
 
 
 

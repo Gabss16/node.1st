@@ -1,8 +1,12 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
 
-const URI = "mongodb://localhost:27017/ZonaDigital";
+import { config } from "./config.js";
 
-mongoose.connect(URI);
+//const URI = "";
+
+mongoose.connect(config.db.URI);
 
 const connection = mongoose.connection;
 connection.once("open", () => {
