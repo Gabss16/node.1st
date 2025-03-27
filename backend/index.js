@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config();
 
-import { config } from "./config.js";
+import { config } from "./src/config.js";
 
 async function main() {
 
