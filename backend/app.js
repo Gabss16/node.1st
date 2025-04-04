@@ -7,6 +7,7 @@ import reviewsRoutes from "./src/routes/reviews.js"
 import registerEmployeesRoutes from "./src/routes/registerEmployees.js"
 import loginRoutes from "./src/routes/login.js"
 import logoutRoutes from "./src/routes/logout.js"
+import registerCustomers from "./src/routes/registerCostumers.js"
 import cookieParser from "cookie-parser";
 const app = express();
 
@@ -26,6 +27,8 @@ app.use("/api/reviews", reviewsRoutes);
 app.use("/api/registerEmployees", registerEmployeesRoutes);
 app.use("/api/login", loginRoutes);
 app.use("/api/logout", logoutRoutes);
+
+app.use("/api/registerCustomers", registerCustomers)
 
 
 
