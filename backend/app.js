@@ -8,6 +8,7 @@ import registerEmployeesRoutes from "./src/routes/registerEmployees.js"
 import loginRoutes from "./src/routes/login.js"
 import logoutRoutes from "./src/routes/logout.js"
 import registerCustomers from "./src/routes/registerCostumers.js"
+import recoveryPasswordRoutes from "./src/routes/recoveryPassword.js"
 import cookieParser from "cookie-parser";
 const app = express();
 
@@ -29,6 +30,7 @@ app.use("/api/login", loginRoutes);
 app.use("/api/logout", logoutRoutes);
 
 app.use("/api/registerCustomers", registerCustomers)
+app.use("/api/recoveryPassword", recoveryPasswordRoutes)
 
 
 
