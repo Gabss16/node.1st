@@ -35,7 +35,7 @@ passwordRecoveryController.requestCode = async(req,res)=> {
             
         }
 
-        const code = Math.floor(10000+Math.random()*90000).toString
+        const code = Math.floor(10000+Math.random()*90000).toString()
 
         const token = jsonwebtoken.sign(
 
@@ -43,7 +43,7 @@ passwordRecoveryController.requestCode = async(req,res)=> {
 
             config.JWT.secret,
 
-            {expiresIn : "20"}
+            {expiresIn : "20m"}
         )
 
         res.cookie("tokenRecoveryCode", token, {maxAge:20*60*10000})
@@ -54,9 +54,48 @@ passwordRecoveryController.requestCode = async(req,res)=> {
             "Hello! Remember dont forget your pass",
             HTMLRecoveryEmail(code)
         )
+        res.json({message: "email sending sucessfully"});
         
     } catch (error) {
         console.log("error" + error)
+    }
+};
+
+//FUNCION PAREA VERIFICAR CODIGO
+passwordRecoveryController.verifyCode = async(req, res) => {
+    const {code} = req.body;
+
+    try {
+
+        const   token = req.cookies.tokenRecoveryCode
+
+        const decoded = jsonwebtoken.verify(token, config.JWT.secret)
+
+
+        if(decoded.code !== code){
+            return res.json({message: "invalid code"})
+        }
+
+        const newToken = jsonwebtoken.sign(
+            {email: decoded.email, 
+            code: decoded.code, 
+            userType: decoded.userType, 
+            verified:true
+        },
+
+            config.JWT.secret,
+
+            {expiresIn : "20m"}
+        );
+
+        res.cookie("tokenRecoveryCode", newToken,  {maxAge:20*60*10000})
+        res.json({message: "Code verified sucessfully"});
+        
+        
+    } catch (error) {
+
+        console.log("error" + error)
+        
     }
 }
 
