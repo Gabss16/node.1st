@@ -11,6 +11,7 @@ import registerCustomers from "./src/routes/registerCostumers.js"
 import recoveryPasswordRoutes from "./src/routes/recoveryPassword.js"
 import cookieParser from "cookie-parser";
 import providersRoutes from "./src/routes/providers.js"
+import brandsRoutes from "./src/routes/brands.js"
 const app = express();
 
 
@@ -34,6 +35,7 @@ app.use("/api/registerCustomers", registerCustomers)
 app.use("/api/recoveryPassword", recoveryPasswordRoutes)
 
 app.use("/api/providers", providersRoutes)
+app.use("/api/brands", brandsRoutes)
 
 
 
