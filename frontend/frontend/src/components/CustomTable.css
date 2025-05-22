@@ -1,0 +1,132 @@
+/* Contenedor principal de la tabla */
+.table-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Encabezado de la tabla */
+  .table-header {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  
+  .custom-span {
+    color: #ff6600;
+  }
+  
+  /* Descripción debajo del encabezado */
+  .table-description {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo de la barra de búsqueda */
+  .search-bar {
+    padding: 10px;
+    width: 250px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-right: 20px;
+  }
+  
+  .table-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .button-group {
+    display: flex;
+  }
+  
+  /* Botón de añadir */
+  .add-btn {
+    padding: 10px 20px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+  }
+  
+  .add-btn:hover {
+    background-color: #e65c00;
+  }
+  
+  /* Tabla */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  table th,
+  table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  table th {
+    background-color: #f4f4f4;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  table td {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  /* Botones de acción */
+  .edit-btn,
+  .delete-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-right: 10px;
+  }
+  
+  .edit-btn {
+    background-color: #4caf50;
+    color: white;
+    transition: background-color 0.3s;
+  }
+  
+  .edit-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .delete-btn {
+    background-color: #f44336;
+    color: white;
+    transition: background-color 0.3s;
+  }
+  
+  .delete-btn:hover {
+    background-color: #e53935;
+  }
+  
+  .delete-btn:active {
+    background-color: #d32f2f;
+  }
+  
+  /* Filtro de búsqueda */
+  .search-bar:focus {
+    outline: none;
+    border-color: #ff6600;
+  }
+  

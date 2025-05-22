@@ -12,7 +12,18 @@ import recoveryPasswordRoutes from "./src/routes/recoveryPassword.js"
 import cookieParser from "cookie-parser";
 import providersRoutes from "./src/routes/providers.js"
 import brandsRoutes from "./src/routes/brands.js"
+import {validateAuthToken} from "./src/middlewares/valideAuthToken.js"
+import cors from "cors";
+
 const app = express();
+
+app.use(
+    cors({
+      origin: "*", // Dominio del cliente
+      credentials: true, // Permitir envío de cookies y credenciales
+    })
+  );
+
 
 
 app.use(express.json());
@@ -21,7 +32,7 @@ app.use(cookieParser());
 
 //Empieza CRUD
 //1.definir rutas de funciones
-app.use("/api/products", productsRoutes);
+app.use("/api/products" , productsRoutes);
 app.use("/api/costumers", costumersRoutes);
 app.use("/api/employees", employeesRoutes);
 app.use("/api/branches", branchesRoutes);
@@ -34,7 +45,7 @@ app.use("/api/logout", logoutRoutes);
 app.use("/api/registerCustomers", registerCustomers)
 app.use("/api/recoveryPassword", recoveryPasswordRoutes)
 
-app.use("/api/providers", providersRoutes)
+app.use("/api/providers",validateAuthToken(["admin"]), providersRoutes)
 app.use("/api/brands", brandsRoutes)
 
 

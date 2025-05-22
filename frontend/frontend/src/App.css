@@ -1,0 +1,104 @@
+/* Estilos generales para el layout */
+.app-container {
+  display: flex; /* Esto alinea el navbar a la izquierda y el contenido a la derecha */
+  height: 100vh;
+  width: 100vw;
+}
+
+.navbar {
+  width: 250px; /* Ajusta el tamaño del navbar */
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  position: fixed; /* Hace que el navbar se quede fijo al hacer scroll */
+  height: 100vh; /* Asegura que el navbar ocupe toda la altura de la pantalla */
+  z-index: 10;
+}
+
+.content-container {
+  /*margin-left: 270px; /* Espacio para que el contenido no se sobreponga al navbar */
+  padding: 20px;
+  width: calc(100vw - 270px); /* Ajusta el tamaño para ocupar el resto de la pantalla */
+  overflow-y: auto; /* Si el contenido es largo, habilita el scroll */
+  height: 100vh; /* Asegura que el contenido ocupe toda la altura de la pantalla */
+}
+
+h1 {
+  color: #333;
+}
+
+/* Estilos del navbar */
+.navbar a {
+  display: block;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.navbar a:hover {
+  background-color: #575757;
+}
+
+/* Estilo del botón del navbar */
+.navbar button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.navbar button:hover {
+  background-color: #45a049;
+}
+
+/* Estilo del contenido de las páginas */
+.add-employee-container,
+.add-accessory-container,
+.add-clothes-container,
+.add-category-container {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.add-employee-main,
+.add-accessory-main,
+.add-clothes-main,
+.add-category-main {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+/* Asegura que el contenido principal tenga suficiente espacio */
+.content-container {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  height: 100vh; /* Hace que el contenido ocupe toda la pantalla */
+  background-color: #fff; /* Fondo blanco para el contenido */
+}
