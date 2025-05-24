@@ -6,7 +6,7 @@ const branchesShema = new Schema({
         type: String,
         require: true
     },
-    adress:{
+    address:{
         type: String
 
     },

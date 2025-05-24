@@ -11,8 +11,8 @@ res.json(branches)
  
 // INSERT
 branchesController.createBranches = async (req, res) => {
-    const{ name, adress, telephone, schedule } = req.body;
-    const newCostumers = new branchesModel ({name, adress, telephone, schedule});
+    const{ name, address, telephone, schedule } = req.body;
+    const newCostumers = new branchesModel ({name, address, telephone, schedule});
     await newCostumers.save()
     res.json({ message : "branches saved"});
 }
@@ -26,11 +26,11 @@ branchesController.createBranches = async (req, res) => {
 //UPDATE
 branchesController.updateBranches = async (req, res) => {
    //  Solicito todos los valores
-    const {name, adress, telephone, schedule} = req.body;
+    const {name, address, telephone, schedule} = req.body;
  
     await branchesModel.findByIdAndUpdate(req.params.id,{
        name,
-       adress,
+       address,
        telephone,
        schedule
     },{new: true}

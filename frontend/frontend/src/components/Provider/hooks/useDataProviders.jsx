@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from "react-hot-toast";
 
 const userDataProviders = () => {
   const ApiProviders = "http://localhost:4000/api/providers";
@@ -7,41 +7,36 @@ const userDataProviders = () => {
   const [id, setId] = useState("");
   const [name, setName] = useState("");
   const [cellphone, setCellphone] = useState("");
-  const [img, setImg] = useState("");
   const [errorProvider, setError] = useState(null);
   const [success, setSuccess] = useState(null);
   const [loading, setLoading] = useState(false);
   const [providers, setProviders] = useState([]);
 
-  // 👉 Limpiar los datos del formulario
+  // Limpiar datos del formulario
   const cleanData = () => {
     setName("");
     setCellphone("");
-    setImg("");
     setId("");
     setError(null);
     setSuccess(null);
   };
 
-  // 👉 Registrar nuevo proveedor
+  // Registrar nuevo proveedor
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!name || !cellphone || !img) {
+    if (!name || !cellphone) {
       setError("Todos los campos son obligatorios");
       toast.error("Todos los campos son obligatorios");
       return;
     }
 
     try {
-      const newProvider = { name, cellphone, img };
-      console.log(newProvider, "datos del nuevo proveedor");
+      const newProvider = { name, cellphone };
 
       const response = await fetch(ApiProviders, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newProvider),
       });
 
@@ -49,21 +44,21 @@ const userDataProviders = () => {
         throw new Error("Hubo un error al registrar el proveedor");
       }
 
-      const data = await response.json();
+      await response.json();
       toast.success("Proveedor registrado");
       setSuccess("Proveedor registrado correctamente");
-      cleanData();  // Limpiar los campos después de registrar
+      cleanData();
       fetchData();
     } catch (error) {
       setError(error.message);
-      console.error("Error al registrar el proveedor:", error);
       toast.error("Ocurrió un error al registrar el proveedor");
+      console.error("Error al registrar el proveedor:", error);
     } finally {
       setLoading(false);
     }
   };
 
-  // 👉 Obtener proveedores
+  // Obtener proveedores
   const fetchData = async () => {
     setLoading(true);
     try {
@@ -82,7 +77,7 @@ const userDataProviders = () => {
     fetchData();
   }, []);
 
-  // 👉 Eliminar proveedor
+  // Eliminar proveedor
   const deleteProvider = async (id) => {
     try {
       const response = await fetch(`${ApiProviders}/${id}`, {
@@ -94,35 +89,32 @@ const userDataProviders = () => {
       }
 
       toast.success("Proveedor eliminado");
-      fetchData(); // Refresca la lista de proveedores
+      fetchData();
     } catch (error) {
       console.error("Error deleting provider:", error);
       toast.error("Error al eliminar el proveedor");
     }
   };
 
-  // 👉 Llenar formulario para edición
+  // Llenar formulario para edición
   const updateProvider = (dataProvider) => {
     setId(dataProvider._id);
     setName(dataProvider.name);
     setCellphone(dataProvider.cellphone);
-    setImg(dataProvider.img);
     setError(null);
     setSuccess(null);
   };
 
-  // 👉 Guardar cambios de edición
+  // Guardar cambios de edición
   const handleUpdate = async (e) => {
     e.preventDefault();
 
     try {
-      const updatedProvider = { name, cellphone, img };
+      const updatedProvider = { name, cellphone };
 
       const response = await fetch(`${ApiProviders}/${id}`, {
         method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updatedProvider),
       });
 
@@ -132,7 +124,7 @@ const userDataProviders = () => {
 
       toast.success("Proveedor actualizado");
       setSuccess("Proveedor actualizado correctamente");
-      cleanData();  // Limpiar los campos después de actualizar
+      cleanData();
       fetchData();
     } catch (error) {
       setError(error.message);
@@ -150,8 +142,6 @@ const userDataProviders = () => {
     setName,
     cellphone,
     setCellphone,
-    img,
-    setImg,
     errorProvider,
     setError,
     success,
@@ -160,7 +150,7 @@ const userDataProviders = () => {
     setLoading,
     providers,
     setProviders,
-    cleanData,  // Asegúrate de exportar cleanData aquí
+    cleanData,
     handleSubmit,
     fetchData,
     deleteProvider,
@@ -170,3 +160,4 @@ const userDataProviders = () => {
 };
 
 export default userDataProviders;
+

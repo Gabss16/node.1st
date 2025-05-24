@@ -45,7 +45,7 @@ app.use("/api/logout", logoutRoutes);
 app.use("/api/registerCustomers", registerCustomers)
 app.use("/api/recoveryPassword", recoveryPasswordRoutes)
 
-app.use("/api/providers",validateAuthToken(["admin"]), providersRoutes)
+app.use("/api/providers", providersRoutes)
 app.use("/api/brands", brandsRoutes)
 
 

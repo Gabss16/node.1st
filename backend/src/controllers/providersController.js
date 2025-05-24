@@ -43,6 +43,42 @@ providersController.createProviders = async (req, res) => {
     await newProviders.save()
     res.json({ message : "Provider saved"});
 };
+
+// UPDATE
+providersController.updateProvider = async (req, res) => {
+    const { id } = req.params;
+    const { name, cellphone } = req.body;
+    
+    try {
+      const updatedProvider = await providersModel.findByIdAndUpdate(
+        id,
+        { name, cellphone },
+        { new: true }
+      );
+      if (!updatedProvider) {
+        return res.status(404).json({ message: "Proveedor no encontrado" });
+      }
+      res.json({ message: "Proveedor actualizado", provider: updatedProvider });
+    } catch (error) {
+      res.status(500).json({ message: "Error al actualizar el proveedor" });
+    }
+  };
+  
+  // DELETE
+  providersController.deleteProvider = async (req, res) => {
+    const { id } = req.params;
+  
+    try {
+      const deletedProvider = await providersModel.findByIdAndDelete(id);
+      if (!deletedProvider) {
+        return res.status(404).json({ message: "Proveedor no encontrado" });
+      }
+      res.json({ message: "Proveedor eliminado" });
+    } catch (error) {
+      res.status(500).json({ message: "Error al eliminar el proveedor" });
+    }
+  };
+  
  
 
 export default providersController;

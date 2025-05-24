@@ -15,5 +15,8 @@ const upload = multer({dest: "public/"})
 router.route("/")
 .get(providersController.getProviders)
 .post(upload.single("img"),providersController.createProviders)
+router.route("/:id")
+.put(providersController.updateProvider)
+.delete(providersController.deleteProvider);
 
 export default router;
