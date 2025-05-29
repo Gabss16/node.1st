@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 
 const userDataProviders = () => {
-  const ApiProviders = "http://localhost:4000/api/providers";
+  const ApiProviders = "https://node-1st-c73c.onrender.com/api/providers";
 
   const [id, setId] = useState("");
   const [name, setName] = useState("");

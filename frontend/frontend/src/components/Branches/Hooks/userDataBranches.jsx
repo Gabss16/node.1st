@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import toast, { Toaster } from 'react-hot-toast';
 
 const userDataBranches = () => {
-  const ApiBranches = "http://localhost:4000/api/branches";
+  const ApiBranches = "https://node-1st-c73c.onrender.com/api/branches";
 
   const [id, setId] = useState("");
   const [name, setName] = useState("");

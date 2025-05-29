@@ -19,7 +19,7 @@ const app = express();
 
 app.use(
     cors({
-      origin: "*", // Dominio del cliente
+      origin: "https://node-1st-ochre.vercel.app", // Dominio del cliente
       credentials: true, // Permitir envío de cookies y credenciales
     })
   );

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import toast, { Toaster } from 'react-hot-toast';
 
 const userDataProducts = () => {
-  const ApiProducts = "http://localhost:4000/api/products";
+  const ApiProducts = "https://node-1st-c73c.onrender.com/api/products";
 
   const [id, setId] = useState("");
   const [name, setName] = useState("");
