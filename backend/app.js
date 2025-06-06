@@ -12,6 +12,7 @@ import recoveryPasswordRoutes from "./src/routes/recoveryPassword.js"
 import cookieParser from "cookie-parser";
 import providersRoutes from "./src/routes/providers.js"
 import brandsRoutes from "./src/routes/brands.js"
+import faqsRoutes from "./src/routes/faqs.js"
 import {validateAuthToken} from "./src/middlewares/valideAuthToken.js"
 import cors from "cors";
 
@@ -47,6 +48,8 @@ app.use("/api/recoveryPassword", recoveryPasswordRoutes)
 
 app.use("/api/providers", providersRoutes)
 app.use("/api/brands", brandsRoutes)
+
+app.use("/api/faqs", faqsRoutes)
 
 
 
