@@ -16,6 +16,11 @@ import faqsRoutes from "./src/routes/faqs.js"
 import {validateAuthToken} from "./src/middlewares/valideAuthToken.js"
 import cors from "cors";
 
+import swaggerui from "swagger-ui-express"
+import fs from "fs"
+import path from "path"
+
+
 const app = express();
 
 app.use(
@@ -29,6 +34,12 @@ app.use(
 
 app.use(express.json());
 app.use(cookieParser());
+
+const swaggerDocument = JSON.parse(
+  fs.readFileSync(path.resolve("./apiDocumentationZD.json"), "utf-8")
+);
+
+app.use("/api/docs", swaggerui.serve, swaggerui.setup(swaggerDocument))
 
 
 //Empieza CRUD
